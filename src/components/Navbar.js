@@ -42,7 +42,7 @@ const Navbar = class extends React.Component {
         <div className="container">
           <div className="navbar-brand">
             <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: "88px" }} />
+              Rakomin JAM
             </Link>
             {/* Hamburger menu */}
             <div
@@ -82,12 +82,12 @@ const Navbar = class extends React.Component {
             <div className="navbar-end has-text-centered">
               <a
                 className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
+                href="https://app.netlify.com/sites/tiny-mermaid-c0f406/overview"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <span className="icon">
-                  <img src={github} alt="Github" />
+                  <img src="https://seeklogo.com/images/N/netlify-logo-758722CDF4-seeklogo.com.png" alt="Github" />
                 </span>
               </a>
             </div>
