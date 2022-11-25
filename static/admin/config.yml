@@ -244,3 +244,15 @@ collections:
                   },
                 ],
             }
+      - file: "src/pages/new/index.md"
+        label: "New"
+        name: "new"
+        fields:
+          - {
+            label: "Template Key",
+            name: "templateKey",
+            widget: "hidden",
+            default: "about-page",
+          }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
