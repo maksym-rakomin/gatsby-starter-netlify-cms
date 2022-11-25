@@ -2,6 +2,9 @@
 templateKey: new-page
 path: /new
 title: New page title
+image: /img/home-jumbotron.jpg
+heading: test head
+subheading: long subheading for new page on test site netlify with gatsby
 ---
 ### 1Shade-grown coffee
 
