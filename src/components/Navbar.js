@@ -83,7 +83,7 @@ const Navbar = class extends React.Component {
             <div className="navbar-end has-text-centered">
               <a
                 className="navbar-item"
-                href="https://app.netlify.com/sites/tiny-mermaid-c0f406/overview"
+                href="/admin/#/collections/pages"
                 target="_blank"
                 rel="noopener noreferrer"
               >
