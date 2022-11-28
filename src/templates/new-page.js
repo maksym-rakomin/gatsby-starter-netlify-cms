@@ -3,44 +3,51 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
+import {getImage} from "gatsby-plugin-image";
+import FullWidthImage from "../components/FullWidthImage";
 
 // eslint-disable-next-line
-export const NewPageTemplate = ({ title, content, contentComponent }) => {
+export const NewPageTemplate = (props) => {
+    const { html, frontmatter: { title, heading, image, subheading }, contentComponent } = props
     const PageContent = contentComponent || Content;
+    const heroImage = getImage(image) || image;
 
     return (
-        <section className="section section--gradient">
-            <div className="container">
-                <div className="columns">
-                    <div className="column is-10 is-offset-1">
-                        <div className="section">
-                            <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                                {title}
-                            </h2>
-                            <PageContent className="content" content={content} />
+        <div>
+            <FullWidthImage img={heroImage} title={heading} subheading={subheading} />
+
+            <section className="section section--gradient">
+                <div className="container">
+                    <div className="columns">
+                        <div className="column is-10 is-offset-1">
+                            <div className="section">
+                                <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+                                    {title}
+                                </h2>
+                                <PageContent className="content" content={html} />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     );
 };
 
 NewPageTemplate.propTypes = {
-    title: PropTypes.string.isRequired,
-    content: PropTypes.string,
+    frontmatter: PropTypes.object.isRequired,
+    html: PropTypes.string,
     contentComponent: PropTypes.func,
 };
 
 const NewPage = ({ data }) => {
-    const { markdownRemark: post } = data;
+    const { markdownRemark: page } = data;
 
     return (
         <Layout>
             <NewPageTemplate
                 contentComponent={HTMLContent}
-                title={post.frontmatter.title}
-                content={post.html}
+                { ...page }
             />
         </Layout>
     );
@@ -53,11 +60,18 @@ NewPage.propTypes = {
 export default NewPage;
 
 export const NewPageQuery = graphql`
-  query NewPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query NewPageTemplate {
+    markdownRemark(frontmatter: { templateKey: { eq: "new-page" } }) {
       html
       frontmatter {
         title
+        image {
+          childImageSharp {
+            gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+          }
+        }
+        heading
+        subheading
       }
     }
   }
