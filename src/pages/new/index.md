@@ -1,7 +1,7 @@
 ---
 templateKey: new-page
 path: /new
-title: New page title
+title: New page title test
 image: /img/home-jumbotron.jpg
 heading: test head
 subheading: long subheading for new page on test site netlify with gatsby
