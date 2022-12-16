@@ -2,11 +2,11 @@
 templateKey: new-page
 path: /new
 title: New page title test
-image: /img/home-jumbotron.jpg
+image: /img/products-grid1.jpg
 heading: test head
 subheading: long subheading for new page on test site netlify with gatsby
 ---
-### 1Shade-grown coffee
+### 1Test head
 
 Coffee is a small tree or shrub that grows in the forest understory in its wild form, and traditionally was grown commercially under other trees that provided shade. The forest-like structure of shade coffee farms provides habitat for a great number of migratory and resident species.
 
